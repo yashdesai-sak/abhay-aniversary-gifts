@@ -1,21 +1,23 @@
+use love meter and rewrite the code
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Our 1 Year ❤️</title>
 
-  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
+
     *{
       margin:0;
       padding:0;
       box-sizing:border-box;
-      scroll-behavior:smooth;
       font-family:'Poppins',sans-serif;
+      scroll-behavior:smooth;
     }
 
     body{
@@ -25,15 +27,16 @@
     }
 
     /* ===== Floating Hearts ===== */
+
     .heart{
       position:fixed;
       width:20px;
       height:20px;
-      background:red;
+      background:#ff4d6d;
       transform:rotate(45deg);
       animation:float 10s linear infinite;
-      opacity:0.6;
-      z-index:0;
+      opacity:0.5;
+      z-index:-1;
     }
 
     .heart::before,
@@ -41,7 +44,7 @@
       content:'';
       width:20px;
       height:20px;
-      background:red;
+      background:#ff4d6d;
       border-radius:50%;
       position:absolute;
     }
@@ -61,13 +64,15 @@
         transform:translateY(100vh) rotate(45deg);
         opacity:0;
       }
+
       100%{
         transform:translateY(-120vh) rotate(45deg);
-        opacity:0.8;
+        opacity:0.7;
       }
     }
 
-    /* ===== Hero Section ===== */
+    /* ===== HERO ===== */
+
     .hero{
       height:100vh;
       display:flex;
@@ -75,43 +80,42 @@
       align-items:center;
       flex-direction:column;
       text-align:center;
-      position:relative;
-      overflow:hidden;
       padding:20px;
+
       background:
-      linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+      linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
       url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=1600') center/cover;
     }
 
     .hero h1{
       font-size:4rem;
-      margin-bottom:10px;
+      margin-bottom:20px;
       animation:fadeDown 1.5s ease;
     }
 
     .hero p{
-      font-size:1.2rem;
       max-width:700px;
+      font-size:1.2rem;
+      line-height:1.8;
       animation:fadeUp 2s ease;
     }
 
     .btn{
       margin-top:30px;
-      padding:14px 35px;
+      padding:15px 35px;
       border:none;
       border-radius:50px;
       background:#ff4d6d;
       color:white;
-      font-size:1rem;
       cursor:pointer;
       transition:0.4s;
+      font-size:1rem;
       text-decoration:none;
-      animation:fadeUp 2.5s ease;
     }
 
     .btn:hover{
-      transform:scale(1.1);
-      box-shadow:0 0 20px #ff4d6d;
+      transform:scale(1.08);
+      box-shadow:0 0 25px #ff4d6d;
     }
 
     @keyframes fadeDown{
@@ -119,6 +123,7 @@
         opacity:0;
         transform:translateY(-50px);
       }
+
       to{
         opacity:1;
         transform:translateY(0);
@@ -130,82 +135,57 @@
         opacity:0;
         transform:translateY(50px);
       }
+
       to{
         opacity:1;
         transform:translateY(0);
       }
     }
 
-    /* ===== Timeline ===== */
-    .timeline{
+    /* ===== SECTION ===== */
+
+    section{
       padding:100px 20px;
-      background:#141414;
     }
 
-    .timeline h2{
+    h2{
       text-align:center;
       font-size:3rem;
-      margin-bottom:60px;
+      margin-bottom:50px;
     }
+
+    /* ===== TIMELINE ===== */
 
     .timeline-container{
       max-width:900px;
       margin:auto;
-      position:relative;
-    }
-
-    .timeline-container::after{
-      content:'';
-      position:absolute;
-      width:4px;
-      background:#ff4d6d;
-      top:0;
-      bottom:0;
-      left:50%;
-      margin-left:-2px;
+      display:flex;
+      flex-direction:column;
+      gap:40px;
     }
 
     .memory{
-      padding:20px 40px;
-      position:relative;
-      width:50%;
+      background:#1a1a1a;
+      padding:25px;
+      border-radius:25px;
+      transition:0.4s;
+      box-shadow:0 0 20px rgba(255,77,109,0.15);
+    }
+
+    .memory:hover{
+      transform:translateY(-10px);
     }
 
     .memory img{
       width:100%;
       border-radius:20px;
       margin-top:15px;
-      transition:0.4s;
     }
 
-    .memory img:hover{
-      transform:scale(1.03);
-    }
+    /* ===== LOVE NOTES ===== */
 
-    .left{
-      left:0;
-    }
-
-    .right{
-      left:50%;
-    }
-
-    .memory-content{
-      background:#1f1f1f;
-      padding:20px;
-      border-radius:20px;
-      box-shadow:0 0 20px rgba(255,77,109,0.2);
-    }
-
-    /* ===== Love Notes ===== */
     .notes{
-      padding:100px 20px;
       text-align:center;
-    }
-
-    .notes h2{
-      font-size:3rem;
-      margin-bottom:30px;
     }
 
     .note-box{
@@ -214,218 +194,355 @@
       background:#1a1a1a;
       padding:40px;
       border-radius:25px;
-      font-size:1.2rem;
       min-height:150px;
-      transition:0.5s;
-      box-shadow:0 0 25px rgba(255,77,109,0.2);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-size:1.3rem;
+      box-shadow:0 0 20px rgba(255,77,109,0.2);
     }
 
-    .note-btn{
-      margin-top:30px;
+    /* ===== LOVE METER ===== */
+
+    .meter-container{
+      text-align:center;
     }
 
-    /* ===== Final Section ===== */
-    .final{
-      height:100vh;
+    .meter{
+      width:280px;
+      height:280px;
+      border-radius:50%;
+      margin:40px auto;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-size:3rem;
+      font-weight:bold;
+      background:conic-gradient(
+      #ff4d6d 0deg,
+      #ff4d6d 0deg,
+      #222 0deg
+      );
+
+      box-shadow:0 0 40px rgba(255,77,109,0.4);
+      transition:1s;
+    }
+
+    .meter-inner{
+      width:220px;
+      height:220px;
+      background:#111;
+      border-radius:50%;
       display:flex;
       justify-content:center;
       align-items:center;
       flex-direction:column;
-      text-align:center;
-      padding:20px;
-      background:
-      linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
-      url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1600') center/cover;
     }
 
-    .final h2{
-      font-size:4rem;
-      margin-bottom:20px;
+    /* ===== FINAL ===== */
+
+    .final{
+      text-align:center;
+
+      background:
+      linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.8)),
+      url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1600') center/cover;
     }
 
     .final p{
       max-width:700px;
+      margin:auto;
       line-height:1.8;
       font-size:1.2rem;
     }
 
-    /* ===== Music Button ===== */
+    /* ===== MUSIC ===== */
+
     .music-btn{
       position:fixed;
       top:20px;
       right:20px;
-      z-index:999;
-      background:#ff4d6d;
-      border:none;
       width:55px;
       height:55px;
+      border:none;
       border-radius:50%;
+      background:#ff4d6d;
       color:white;
-      font-size:20px;
+      font-size:22px;
       cursor:pointer;
-      box-shadow:0 0 20px rgba(255,77,109,0.4);
+      z-index:999;
     }
 
-    /* ===== Mobile ===== */
+    /* ===== MOBILE ===== */
+
     @media(max-width:768px){
 
       .hero h1{
         font-size:2.5rem;
       }
 
-      .timeline-container::after{
-        left:20px;
+      h2{
+        font-size:2.2rem;
       }
 
-      .memory{
-        width:100%;
-        padding-left:60px;
-        padding-right:20px;
-        margin-bottom:40px;
+      .meter{
+        width:220px;
+        height:220px;
       }
 
-      .right{
-        left:0;
+      .meter-inner{
+        width:170px;
+        height:170px;
       }
+
     }
+
   </style>
 </head>
 
 <body>
 
-  <!-- Background Music -->
+  <!-- MUSIC -->
+
   <audio id="music" loop>
     <source src="your-music.mp3" type="audio/mp3">
   </audio>
 
   <button class="music-btn" onclick="toggleMusic()">🎵</button>
 
-  <!-- Floating Hearts -->
+  <!-- FLOATING HEARTS -->
+
   <script>
-    for(let i=0;i<25;i++){
+
+    for(let i=0;i<30;i++){
+
       let heart=document.createElement('div');
+
       heart.classList.add('heart');
+
       heart.style.left=Math.random()*100+'vw';
-      heart.style.animationDuration=(Math.random()*5+5)+'s';
-      heart.style.opacity=Math.random();
-      heart.style.width=heart.style.height=(Math.random()*20+10)+'px';
+
+      heart.style.animationDuration=
+      (Math.random()*5+5)+'s';
+
+      heart.style.width=
+      heart.style.height=
+      (Math.random()*20+10)+'px';
+
       document.body.appendChild(heart);
     }
+
   </script>
 
   <!-- HERO -->
+
   <section class="hero">
+
     <h1>Happy 1 Year ❤️</h1>
+
     <p>
-      365 days of love, laughter, memories, and the best moments of my life.
-      Thank you for being my favorite person.
+      One whole year of memories, laughter,
+      chaos, late-night talks, and loving you.
+      And honestly... I’d choose you every single time.
     </p>
 
-    <a href="#timeline" class="btn">Start Our Journey</a>
+    <a href="#timeline" class="btn">
+      Start Our Story ✨
+    </a>
+
   </section>
 
   <!-- TIMELINE -->
-  <section class="timeline" id="timeline">
 
-    <h2>Our Beautiful Journey ✨</h2>
+  <section id="timeline">
+
+    <h2>Our Journey 💖</h2>
 
     <div class="timeline-container">
 
-      <div class="memory left">
-        <div class="memory-content">
-          <h3>💌 The Day We Met</h3>
-          <p>
-            The moment everything changed forever.
-          </p>
-          <img src="photo1.jpg" alt="">
-        </div>
+      <div class="memory">
+        <h3>🌸 First Meet</h3>
+
+        <p>
+          The moment my life secretly changed forever.
+        </p>
+
+        <img src="photo1.jpg">
       </div>
 
-      <div class="memory right">
-        <div class="memory-content">
-          <h3>🌸 Our First Date</h3>
-          <p>
-            Still one of my favorite days ever.
-          </p>
-          <img src="photo2.jpg" alt="">
-        </div>
+      <div class="memory">
+        <h3>📸 First Date</h3>
+
+        <p>
+          Still one of my favorite memories ever.
+        </p>
+
+        <img src="photo2.jpg">
       </div>
 
-      <div class="memory left">
-        <div class="memory-content">
-          <h3>📸 Endless Memories</h3>
-          <p>
-            Every picture tells our story.
-          </p>
-          <img src="photo3.jpg" alt="">
-        </div>
+      <div class="memory">
+        <h3>✨ Endless Memories</h3>
+
+        <p>
+          Every photo with you feels special.
+        </p>
+
+        <img src="photo3.jpg">
       </div>
 
     </div>
+
   </section>
 
   <!-- LOVE NOTES -->
+
   <section class="notes">
 
     <h2>Reasons I Love You ❤️</h2>
 
     <div class="note-box" id="note">
-      Click the button below ✨
+      Click below for a surprise 💌
     </div>
 
-    <button class="btn note-btn" onclick="showLove()">
-      Show Me 💖
+    <button class="btn" onclick="showLove()">
+      Reveal Love ✨
+    </button>
+
+  </section>
+
+  <!-- LOVE METER -->
+
+  <section class="meter-container">
+
+    <h2>Love Meter 💘</h2>
+
+    <div class="meter" id="meter">
+
+      <div class="meter-inner">
+
+        <span id="percent">0%</span>
+
+        <small>Compatibility</small>
+
+      </div>
+
+    </div>
+
+    <button class="btn" onclick="startLoveMeter()">
+      Check Our Love ❤️
     </button>
 
   </section>
 
   <!-- FINAL -->
+
   <section class="final">
 
-    <h2>Forever With You 💍</h2>
+    <h2>Forever With You 🌙</h2>
 
     <p>
-      This year with you has been the happiest chapter of my life.
-      No matter where life takes us, I’ll always choose you.
-      Here’s to forever, together ❤️
+      This year has been the most beautiful part
+      of my life. Thank you for every smile,
+      every memory, and every moment.
+      I love you endlessly ❤️
     </p>
 
   </section>
 
+  <!-- SCRIPT -->
+
   <script>
 
-    // Love Notes
+    /* ===== LOVE NOTES ===== */
+
     const messages = [
-      "I love your smile ❤️",
-      "You make every day special ✨",
-      "You're my peace 🌙",
-      "Life feels beautiful with you 💕",
-      "You’re my favorite notification 📱",
+
+      "You make every day brighter ☀️",
+
+      "You are my favorite person ❤️",
+
       "I still get butterflies 🦋",
-      "You are my home ❤️",
-      "Thank you for existing 💖"
+
+      "Life feels complete with you ✨",
+
+      "You are my safe place 🌙",
+
+      "Every memory with you is precious 💖",
+
+      "You're the best thing that happened to me 💌"
+
     ];
 
     function showLove(){
+
       const random =
       messages[Math.floor(Math.random()*messages.length)];
 
       document.getElementById('note').innerHTML = random;
+
     }
 
-    // Music
-    const music = document.getElementById("music");
+    /* ===== LOVE METER ===== */
+
+    function startLoveMeter(){
+
+      let meter = document.getElementById("meter");
+
+      let percentText =
+      document.getElementById("percent");
+
+      let value = 0;
+
+      let finalValue =
+      Math.floor(Math.random()*10)+91;
+
+      let interval = setInterval(()=>{
+
+        value++;
+
+        percentText.innerHTML = value + "%";
+
+        meter.style.background =
+        `conic-gradient(
+        #ff4d6d ${value*3.6}deg,
+        #222 ${value*3.6}deg
+        )`;
+
+        if(value >= finalValue){
+
+          clearInterval(interval);
+
+        }
+
+      },25);
+
+    }
+
+    /* ===== MUSIC ===== */
+
+    const music =
+    document.getElementById("music");
+
     let playing = false;
 
     function toggleMusic(){
 
       if(!playing){
+
         music.play();
+
         playing = true;
-      } else {
-        music.pause();
-        playing = false;
+
       }
+
+      else{
+
+        music.pause();
+
+        playing = false;
+
+      }
+
     }
 
   </script>
